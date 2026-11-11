@@ -1,0 +1,14 @@
+{
+  "name": "corporate-translator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Локальный переводчик эмоциональной речи в корпоративный стиль",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check translator.js && node --check app.js && node --check server.js && node --check launcher.js"
+  }
+}

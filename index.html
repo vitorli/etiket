@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Локальный AI-переводчик между эмоциональной и корпоративной речью.">
+    <title>Этикет — корпоративный переводчик</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Этикет, на главную">
+        <span class="brand-mark" aria-hidden="true">Э</span>
+        <span>Этикет</span>
+      </a>
+      <span class="local-badge"><span aria-hidden="true"></span>Qwen3 8B uncensored · локально</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">От эмоций — к результату</p>
+        <h1 id="page-title">Скажите как есть.<br><em>Отправьте как принято.</em></h1>
+        <p class="hero-description">Переводим между человеческой и корпоративной речью<br class="desktop-break"> с помощью локальной языковой модели.</p>
+      </section>
+
+      <div class="direction-switch" role="group" aria-label="Направление перевода">
+        <button type="button" class="direction-button is-active" data-direction="forward" aria-pressed="true">Эмоции → корпоративный</button>
+        <button type="button" class="direction-button" data-direction="reverse" aria-pressed="false">Корпоративный → человеческий</button>
+      </div>
+
+      <section class="level-card" aria-labelledby="level-title">
+        <div class="level-heading">
+          <div>
+            <h2 id="level-title">Уровень корпоративного лицемерия</h2>
+            <p id="level-description">Факты, риски и следующий шаг</p>
+          </div>
+          <div class="level-readout">
+            <output id="level-value" for="corporate-level">50%</output>
+            <span id="level-name">Деловой стиль</span>
+          </div>
+        </div>
+        <label class="sr-only" for="corporate-level">Интенсивность выбранного стиля в процентах</label>
+        <input id="corporate-level" class="level-range" type="range" min="0" max="100" step="1" value="50" aria-describedby="level-description">
+        <div class="range-labels" aria-hidden="true">
+          <span>Честно</span>
+          <span>Дипломатично</span>
+          <span>Непробиваемо</span>
+        </div>
+      </section>
+
+      <section class="workbench" aria-label="Переводчик">
+        <article class="text-panel">
+          <div class="panel-heading">
+            <span class="step">01</span>
+            <h2 id="source-title">Что вы действительно думаете</h2>
+          </div>
+          <label class="sr-only" for="source-text">Исходная фраза</label>
+          <textarea id="source-text" maxlength="2000" spellcheck="true" placeholder="Например: «Я заебался, всё достало, сил больше нет!»"></textarea>
+          <div class="input-meta">
+            <span>Ctrl + Enter — перевести</span>
+            <span id="character-count">0 / 2000</span>
+          </div>
+          <div class="examples" aria-label="Примеры фраз">
+            <span class="examples-title">Попробуйте:</span>
+            <div class="example-list">
+              <button type="button" class="example-button">Усталость</button>
+              <button type="button" class="example-button">Несогласие</button>
+              <button type="button" class="example-button">Ошибка</button>
+              <button type="button" class="example-button">Отказ</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="text-panel result-panel">
+          <div class="panel-heading">
+            <span class="step">02</span>
+            <h2 id="result-title">Что можно отправить</h2>
+            <button id="copy-button" class="copy-button" type="button" disabled>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path></svg>
+              <span id="copy-label">Копировать</span>
+            </button>
+          </div>
+          <div id="result" class="result" aria-live="polite" aria-atomic="true">
+            <div id="empty-result" class="empty-result">
+              <span class="quote-mark" aria-hidden="true">“</span>
+              <p>Здесь появится версия,<br>созданная локальной моделью.</p>
+            </div>
+            <p id="result-text" hidden></p>
+          </div>
+          <p id="copy-status" class="copy-status" aria-live="polite"></p>
+        </article>
+      </section>
+
+      <div class="action-row">
+        <p id="form-message" class="form-message" role="alert"></p>
+        <button id="translate-button" class="translate-button" type="button">
+          <span>Перевести на корпоративный</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </button>
+      </div>
+
+      <p class="privacy-note">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+        Генерируется на вашем компьютере, без облака
+      </p>
+    </main>
+
+    <footer>Переводит с человеческого на корпоративный. И обратно.</footer>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
